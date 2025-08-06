@@ -29,8 +29,32 @@ public class ProductService {
     public Product addProduct(Product product, MultipartFile image) throws IOException {
 
         product.setImageName(image.getOriginalFilename());
-        product.setIamgeType(image.getContentType());
+        product.setImageType(image.getContentType());
         product.setImageData(image.getBytes());
         return service.save(product);
     }
+
+    public Product updateProduct(Product product, MultipartFile imageFile) throws IOException {
+
+        product.setImageName(imageFile.getOriginalFilename());
+        product.setImageType(imageFile.getContentType());
+        product.setImageData(imageFile.getBytes());
+        return service.save(product);
+
+    }
+
+
+    public void deleteProduct(int id) {
+
+        service.deleteById(id);
+
+    }
+
+
+
+
+    public List<Product> searchProducts(String keyword) {
+        return service.searchProducts(keyword);
+    }
+
 }

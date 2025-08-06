@@ -27,7 +27,9 @@ const Home = ({ selectedCategory }) => {
                 { responseType: "blob" }
               );
               const imageUrl = URL.createObjectURL(response.data);
+              console.log(response);
               return { ...product, imageUrl };
+              
             } catch (error) {
               console.error(
                 "Error fetching image for product ID:",

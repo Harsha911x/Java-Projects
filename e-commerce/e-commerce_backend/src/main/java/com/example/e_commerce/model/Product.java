@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -37,16 +38,31 @@ public class Product {
         this.id = id;
     }
 
-    public void setImageName(String originalFilename) {
-        this.imageName = originalFilename;
+    public byte[] getImageData() {
+        return this.imageData;
     }
 
-    public void setIamgeType(String contentType) {
-        this.imageType = contentType;
+    public String getImageType() {
+        return this.imageType;
     }
 
-    public void setImageData(byte[] bytes) {
-        this.imageData = bytes;
+    public String getName() {
+        return this.name;
     }
 
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
 }
